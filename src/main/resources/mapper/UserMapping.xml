@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.czh.dao.UserDao">
+    <select id="getUserByNameAndPwd" resultType="com.czh.bean.User">
+        select * from easyuser where username=#{username} and password=#{password} and state=1
+    </select>
+
+    <select id="getAllUser" resultType="com.czh.bean.User">
+        select * from easyuser where state=1
+    </select>
+
+    <select id="getAllUserMap" resultType="map">
+        select * from easyuser where state=1
+    </select>
+
+    <select id="getOneUserMap" resultType="map">
+        select * from easyuser where state=1
+    </select>
+
+    <select id="getUserById" resultType="map" parameterType="Integer">
+        select * from easyuser where id=#{id}
+    </select>
+
+    <select id="getUserMap" resultType="map">
+        select * from easyuser
+    </select>
+
+    <select id="getAllUserByPage" resultType="com.czh.bean.User">
+        select * from easyuser
+        <if test="username!=null">
+            where username like #{username}
+        </if>
+        limit #{pageStart},#{pageSize}
+    </select>
+
+    <select id="getUsersCounts" resultType="java.lang.Integer">
+        select count(*) from easyuser
+        <if test="username!=null">
+            where username like #{username}
+        </if>
+    </select>
+
+
+</mapper>
