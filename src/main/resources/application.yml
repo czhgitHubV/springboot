@@ -13,6 +13,6 @@ mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.czh.model
 server:
-  port: 8080
+  port: 8889
 pipeline:
   id: logdelimit-pipeline-id
